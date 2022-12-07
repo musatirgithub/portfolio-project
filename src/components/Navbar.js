@@ -28,6 +28,20 @@ const Navbar = () => {
             </button>
           )}
         </div>
+        <ul className="nav-links">
+          <li>
+            <Link to="/">home</Link>
+          </li>
+          <li>
+            <Link to="/about">about</Link>
+          </li>
+          <li>
+            <Link to="/projects">projects</Link>
+          </li>
+          <li>
+            <Link to="/contact">contact</Link>
+          </li>
+        </ul>
       </div>
     </NavContainer>
   );
@@ -86,13 +100,14 @@ const NavContainer = styled.nav`
         margin: 0 0.5rem;
       }
       a {
-        color: var(--clr-grey-3);
+        color: var(--clr-grey-1);
         font-size: 1rem;
+        font-weight: 600;
         text-transform: capitalize;
         letter-spacing: var(--spacing);
         padding: 0.5rem;
         &:hover {
-          border-bottom: 2px solid var(--clr-primary-7);
+          border-bottom: 2px solid var(--clr-grey-1);
         }
       }
     }
