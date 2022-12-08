@@ -1,28 +1,45 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import Error from "./Error";
+import axios from "axios";
 
 const Projects = () => {
   const url = "https://api.github.com/users/musatirgithub/repos?per_page=100";
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [projects, setProjects] = useState([]);
 
   const fetchData = async () => {
+    setLoading(true);
     try {
-      const data = await fetch(url);
-      setLoading(false);
+      const { data } = await axios(url);
+      setProjects(data);
       console.log(data);
     } catch (error) {
-      setLoading(false);
       setError(true);
       console.log(error.message);
     }
+    setLoading(false);
   };
 
   useEffect(() => {
     fetchData();
   }, []);
-  return <div>Projects</div>;
+
+  if (loading) {
+    return <div className="loading"></div>;
+  }
+  if (error) {
+    return <Error />;
+  }
+  return (
+    <div>
+      {projects?.map((project, index) => {
+        const { name } = project;
+        return <p key={index}>{name}</p>;
+      })}
+    </div>
+  );
 };
 
 export default Projects;
