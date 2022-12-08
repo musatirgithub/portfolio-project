@@ -4,7 +4,6 @@ import { FaGithubSquare } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
 import { IoIosDocument } from "react-icons/io";
 import styled from "styled-components";
-import { Link, Navigate } from "react-router-dom";
 
 const Contact = () => {
   const linkedin = "https://www.linkedin.com/in/mehmet-ugur-satir/";
@@ -56,7 +55,7 @@ const Wrapper = styled.main`
 
   @media (min-width: 992px) {
     .link-icon {
-      font-size: 10rem;
+      font-size: 6rem;
     }
     .main-center > ul {
       gap: 5rem;
