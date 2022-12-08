@@ -15,22 +15,22 @@ const Contact = () => {
         <ul>
           <li>
             <a href={linkedin}>
-              <FaLinkedin size="60" color="var(--clr-grey-1)" />
+              <FaLinkedin color="var(--clr-grey-1)" className="link-icon" />
             </a>
           </li>
           <li>
             <a href={github}>
-              <FaGithubSquare size="60" color="var(--clr-grey-1)" />
+              <FaGithubSquare color="var(--clr-grey-1)" className="link-icon" />
             </a>
           </li>
           <li>
             <a href="mailto:musatir@gmail.com">
-              <MdMail size="60" color="var(--clr-grey-1)" />
+              <MdMail color="var(--clr-grey-1)" className="link-icon" />
             </a>
           </li>
           <li>
             <a href="">
-              <IoIosDocument size="60" color="var(--clr-grey-1)" />
+              <IoIosDocument color="var(--clr-grey-1)" className="link-icon" />
             </a>
           </li>
         </ul>
@@ -48,6 +48,19 @@ const Wrapper = styled.main`
     display: flex;
     justify-content: center;
     gap: 2.5rem;
+  }
+
+  .link-icon {
+    font-size: 3rem;
+  }
+
+  @media (min-width: 992px) {
+    .link-icon {
+      font-size: 10rem;
+    }
+    .main-center > ul {
+      gap: 5rem;
+    }
   }
 `;
 
