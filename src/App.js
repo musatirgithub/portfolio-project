@@ -8,7 +8,6 @@ import Contact from "./pages/Contact";
 import Error from "./pages/Error";
 
 function App() {
-  const url = "https://api.github.com/users/musatirgithub/repos";
   return (
     <BrowserRouter>
       <Navbar />
