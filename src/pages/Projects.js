@@ -12,9 +12,9 @@ const Projects = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const { data } = await axios(url);
+      const response = await fetch(url);
+      const data = await response.json();
       setProjects(data);
-      console.log(data);
     } catch (error) {
       setError(true);
       console.log(error.message);
