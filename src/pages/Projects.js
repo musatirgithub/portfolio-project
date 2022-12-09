@@ -5,14 +5,14 @@ import axios from "axios";
 import loading from "../assets/loading.gif";
 import styled from "styled-components";
 import { FaCalendar, FaCode } from "react-icons/fa";
-import { langs, mySort, myFilter } from "../utils/functions";
+import { langs, mySort, myFilter, mySearch } from "../utils/functions";
 
 const Projects = () => {
   const url = "https://api.github.com/users/musatirgithub/repos?per_page=100";
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [projects, setProjects] = useState([]);
-  console.log(myFilter(projects, "null"));
+  console.log(mySearch(projects, "card"));
 
   const fetchData = async () => {
     setLoading(true);
@@ -80,7 +80,7 @@ const Wrapper = styled.main`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  gap: 2rem;
+  gap: 3rem;
   .card-container {
     width: 300px;
     height: 300px;

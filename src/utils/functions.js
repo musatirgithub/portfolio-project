@@ -41,4 +41,10 @@ const myFilter = (data, criteria) => {
   }
 };
 
-export { langs, mySort, myFilter };
+const mySearch = (data, criteria) => {
+  return data.filter((item) =>
+    item.name.toLowerCase().includes(criteria.toLowerCase())
+  );
+};
+
+export { langs, mySort, myFilter, mySearch };
