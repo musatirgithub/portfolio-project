@@ -4,7 +4,14 @@ import Error from "./Error";
 import axios from "axios";
 import loading from "../assets/loading.gif";
 import styled from "styled-components";
-import { FaCalendar } from "react-icons/fa";
+import {
+  FaCalendar,
+  FaCode,
+  FaCodeBranch,
+  FaCodepen,
+  FaCodiepie,
+  FaCoffee,
+} from "react-icons/fa";
 
 const Projects = () => {
   const url = "https://api.github.com/users/musatirgithub/repos?per_page=100";
@@ -48,17 +55,22 @@ const Projects = () => {
     <Wrapper>
       {projects?.map((project, index) => {
         const { name, created_at, updated_at, language, html_url } = project;
-        const d = new Date();
         return (
           <div className="card-container" key={index}>
             <h5>{name}</h5>
-            <div className="create-date">
-              <FaCalendar className="calendar-icon" />
-              {`Created : ${created_at.slice(0, 10).replace(/-/g, "/")}`}
-            </div>
-            <div className="create-date">
-              <FaCalendar className="calendar-icon" />
-              {`Updated : ${updated_at.slice(0, 10).replace(/-/g, "/")}`}
+            <div className="inner">
+              <div className="withdrawn-data">
+                <FaCalendar className="icon" />
+                {`Created : ${created_at.slice(0, 10).replace(/-/g, "/")}`}
+              </div>
+              <div className="withdrawn-data">
+                <FaCalendar className="icon" />
+                {`Updated : ${updated_at.slice(0, 10).replace(/-/g, "/")}`}
+              </div>
+              <div className="withdrawn-data">
+                <FaCode className="icon" />
+                {`Language: ${language}`}
+              </div>
             </div>
             <button type="button" className="btn">
               <a href={html_url}>github repo</a>
@@ -84,17 +96,21 @@ const Wrapper = styled.main`
     background-color: var(--clr-grey-2);
     border-radius: 5px;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     h5 {
       text-align: center;
-      padding: 0.8rem 0;
     }
-    .create-date {
+    .inner {
+    }
+    .withdrawn-data {
       padding-left: 1.5rem;
       display: flex;
       justify-content: start;
       align-items: center;
     }
-    .calendar-icon {
+    .icon {
       padding-right: 0.8rem;
       font-size: 2rem;
     }
