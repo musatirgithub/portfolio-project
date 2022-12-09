@@ -23,4 +23,22 @@ const mySort = (data, criteria) => {
   }
 };
 
-export { langs, mySort };
+const myFilter = (data, criteria) => {
+  if (criteria.toLowerCase() === "css") {
+    return data.filter((item) => item.language?.toLowerCase() === "css");
+  }
+  if (criteria.toLowerCase() === "html") {
+    return data.filter((item) => item.language?.toLowerCase() === "html");
+  }
+  if (criteria.toLowerCase() === "javascript") {
+    return data.filter((item) => item.language?.toLowerCase() === "javascript");
+  }
+  if (criteria.toLowerCase() === "python") {
+    return data.filter((item) => item.language?.toLowerCase() === "python");
+  }
+  if (criteria.toLowerCase() === "null") {
+    return data.filter((item) => item.language === null);
+  }
+};
+
+export { langs, mySort, myFilter };

@@ -5,14 +5,14 @@ import axios from "axios";
 import loading from "../assets/loading.gif";
 import styled from "styled-components";
 import { FaCalendar, FaCode } from "react-icons/fa";
-import { langs, mySort } from "../utils/functions";
+import { langs, mySort, myFilter } from "../utils/functions";
 
 const Projects = () => {
   const url = "https://api.github.com/users/musatirgithub/repos?per_page=100";
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [projects, setProjects] = useState([]);
-  console.log(mySort(projects, "language"));
+  console.log(myFilter(projects, "null"));
 
   const fetchData = async () => {
     setLoading(true);
