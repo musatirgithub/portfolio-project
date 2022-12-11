@@ -33,6 +33,8 @@ const Projects = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {}, [projects]);
+
   if (loading) {
     return (
       <section>

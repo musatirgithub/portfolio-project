@@ -11,7 +11,7 @@ const Sort = ({ projects, setProjects }) => {
   useEffect(() => {
     const newData = mySort(projects, sortValue);
     setProjects(newData);
-    console.log(sortValue);
+    console.log(sortValue, projects);
   }, [sortValue]);
   return (
     <Wrapper>
