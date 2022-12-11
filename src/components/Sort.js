@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { mySort } from "../utils/functions";
 import styled from "styled-components";
 
@@ -6,9 +6,13 @@ const Sort = ({ projects, setProjects }) => {
   const [sortValue, setsortValue] = useState("name-a");
   const handleSort = (e) => {
     setsortValue(e.target.value);
-    setProjects(mySort(projects, sortValue));
-    console.log(sortValue);
   };
+
+  useEffect(() => {
+    const newData = mySort(projects, sortValue);
+    setProjects(newData);
+    console.log(sortValue);
+  }, [sortValue]);
   return (
     <Wrapper>
       <h5>sort by</h5>

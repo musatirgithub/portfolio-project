@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Filters = ({ projects, setProjects, projectsStart }) => {
   const filterCriterias = langs(projectsStart);
-  const [filter, setfilter] = useState("");
+  const [filter, setfilter] = useState("All");
 
   useEffect(() => {
     const filteredData = myFilter(projectsStart, filter);
@@ -34,6 +34,7 @@ const Filters = ({ projects, setProjects, projectsStart }) => {
 };
 
 const Wrapper = styled.article`
+  margin: 1.5rem 0 1.5rem;
   display: flex;
   flex-direction: column;
   .criteria {
@@ -42,7 +43,7 @@ const Wrapper = styled.article`
   }
   .active {
     color: var(--clr-grey-1);
-    background-color: var(--clr-grey-8);
+    background-color: var(--clr-grey-9);
   }
 `;
 

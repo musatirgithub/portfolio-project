@@ -1,8 +1,10 @@
 const langs = (data) => {
   const langs = [];
-  data.map((item) => langs.push(item.language));
+  data.map((item) =>
+    item.language === null ? langs.push("Null") : langs.push(item.language)
+  );
   const res = new Set(langs);
-  return res;
+  return Array("All", ...res);
 };
 
 const mySort = (data, criteria) => {
@@ -24,6 +26,9 @@ const mySort = (data, criteria) => {
 };
 
 const myFilter = (data, criteria) => {
+  if (criteria === "" || criteria === "All") {
+    return data;
+  }
   if (criteria.toLowerCase() === "css") {
     return data.filter((item) => item.language?.toLowerCase() === "css");
   }
@@ -42,7 +47,7 @@ const myFilter = (data, criteria) => {
 };
 
 const mySearch = (data, criteria) => {
-  return data.filter((item) =>
+  return data?.filter((item) =>
     item.name.toLowerCase().includes(criteria.toLowerCase())
   );
 };

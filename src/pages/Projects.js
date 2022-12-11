@@ -1,26 +1,27 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Error from "./Error";
-import axios from "axios";
-import loading from "../assets/loading.gif";
 import styled from "styled-components";
 import { FaCalendar, FaCode } from "react-icons/fa";
-import { langs, mySort, myFilter, mySearch } from "../utils/functions";
+import { mySearch } from "../utils/functions";
+import Search from "../components/Search";
+import Filters from "../components/Filters";
+import Sort from "../components/Sort";
 
 const Projects = () => {
   const url = "https://api.github.com/users/musatirgithub/repos?per_page=100";
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [projectsStart, setprojectsStart] = useState([]);
   const [projects, setProjects] = useState([]);
-  console.log(mySearch(projects, "card"));
 
   const fetchData = async () => {
     setLoading(true);
     try {
       const response = await fetch(url);
       const data = await response.json();
+      setprojectsStart(data);
       setProjects(data);
-      console.log(data);
     } catch (error) {
       setError(true);
       console.log(error.message);
@@ -33,54 +34,80 @@ const Projects = () => {
   }, []);
 
   if (loading) {
-    return <div className="loading"></div>;
-    // return (
-    //   <div className="section-center">
-    //     <img src={loading} alt="loading" />
-    //   </div>
-    // );
+    return (
+      <section>
+        <div className="loading"></div>
+        <PlaceHolder />
+      </section>
+    );
   }
   if (error) {
     return <Error />;
   }
   return (
     <Wrapper>
-      {projects?.map((project, index) => {
-        const { name, created_at, updated_at, language, html_url } = project;
-        return (
-          <div className="card-container" key={index}>
-            <h5>{name}</h5>
-            <div className="inner">
-              <div className="withdrawn-data">
-                <FaCalendar className="icon" />
-                {`Created : ${created_at.slice(0, 10).replace(/-/g, "/")}`}
+      <div className="filters">
+        <Search
+          projectsStart={projectsStart}
+          projects={projects}
+          setProjects={setProjects}
+        />
+        <Filters
+          projectsStart={projectsStart}
+          projects={projects}
+          setProjects={setProjects}
+        />
+        <Sort projects={projects} setProjects={setProjects} />
+      </div>
+
+      <div className="cards">
+        {projects?.map((project, index) => {
+          const { name, created_at, updated_at, language, html_url } = project;
+          return (
+            <div className="card-container" key={index}>
+              <h5>{name}</h5>
+              <div className="inner">
+                <div className="withdrawn-data">
+                  <FaCalendar className="icon" />
+                  {`Created : ${created_at.slice(0, 10).replace(/-/g, "/")}`}
+                </div>
+                <div className="withdrawn-data">
+                  <FaCalendar className="icon" />
+                  {`Updated : ${updated_at.slice(0, 10).replace(/-/g, "/")}`}
+                </div>
+                <div className="withdrawn-data">
+                  <FaCode className="icon" />
+                  {`Language: ${language}`}
+                </div>
               </div>
-              <div className="withdrawn-data">
-                <FaCalendar className="icon" />
-                {`Updated : ${updated_at.slice(0, 10).replace(/-/g, "/")}`}
-              </div>
-              <div className="withdrawn-data">
-                <FaCode className="icon" />
-                {`Language: ${language}`}
-              </div>
+              <button type="button" className="btn">
+                <a href={html_url}>github repo</a>
+              </button>
             </div>
-            <button type="button" className="btn">
-              <a href={html_url}>github repo</a>
-            </button>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.main`
   width: 95%;
-  margin: 3rem auto 3rem;
+  margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 3rem;
+  flex-direction: column;
+  gap: 1rem;
+  .filters {
+    margin: 0 auto;
+  }
+  .cards {
+    width: 95%;
+    margin: 1rem auto 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 3rem;
+  }
   .card-container {
     width: 300px;
     height: 300px;
@@ -91,6 +118,10 @@ const Wrapper = styled.main`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    transition: all 0.5s ease;
+    &:hover {
+      transform: scale(1.05);
+    }
     h5 {
       text-align: center;
     }
@@ -118,6 +149,20 @@ const Wrapper = styled.main`
 
   @media (min-width: 992px) {
     width: 80%;
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    margin: 0 auto;
+    .filters {
+      margin: 3rem 0;
+    }
+    .cards {
+      margin: 3rem auto 3rem;
+    }
   }
+`;
+
+const PlaceHolder = styled.div`
+  height: calc(100vh-16rem);
 `;
 export default Projects;
