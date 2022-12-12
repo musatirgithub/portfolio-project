@@ -2,7 +2,13 @@ import React, { useEffect, useState } from "react";
 import { mySearch } from "../utils/functions";
 import styled from "styled-components";
 
-const Search = ({ projects, setProjects, projectsStart }) => {
+const Search = ({
+  projects,
+  setProjects,
+  projectsStart,
+  setMessage,
+  setshowMessage,
+}) => {
   const [searchText, setsearchText] = useState("");
   const handleChange = (e) => {
     setsearchText(e.target.value);
@@ -11,6 +17,11 @@ const Search = ({ projects, setProjects, projectsStart }) => {
   useEffect(() => {
     const newData = mySearch(projectsStart, searchText);
     setProjects(newData);
+    setshowMessage(true);
+    setMessage(`There are ${newData.length} projects matching your criteria`);
+    setTimeout(() => {
+      setshowMessage(false);
+    }, 3000);
   }, [searchText]);
   return (
     <Input

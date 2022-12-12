@@ -2,13 +2,26 @@ import React, { useEffect, useState } from "react";
 import { langs, mySort, myFilter, mySearch } from "../utils/functions";
 import styled from "styled-components";
 
-const Filters = ({ projects, setProjects, projectsStart }) => {
+const Filters = ({
+  projects,
+  setProjects,
+  projectsStart,
+  setMessage,
+  setshowMessage,
+}) => {
   const filterCriterias = langs(projectsStart);
   const [filter, setfilter] = useState("All");
 
   useEffect(() => {
     const filteredData = myFilter(projectsStart, filter);
     setProjects(filteredData);
+    setshowMessage(true);
+    setMessage(
+      `There are ${filteredData.length} projects matching your criterias`
+    );
+    setTimeout(() => {
+      setshowMessage(false);
+    }, 3000);
   }, [filter]);
 
   return (

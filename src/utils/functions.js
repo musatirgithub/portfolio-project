@@ -4,7 +4,7 @@ const langs = (data) => {
     item.language === null ? langs.push("Null") : langs.push(item.language)
   );
   const res = new Set(langs);
-  return Array("All", ...res);
+  return ["All", ...res];
 };
 
 const mySort = (data, criteria) => {

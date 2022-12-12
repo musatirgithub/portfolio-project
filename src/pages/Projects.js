@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import Error from "./Error";
 import styled from "styled-components";
 import { FaCalendar, FaCode } from "react-icons/fa";
-import { mySearch } from "../utils/functions";
 import Search from "../components/Search";
 import Filters from "../components/Filters";
 import Sort from "../components/Sort";
@@ -14,6 +13,8 @@ const Projects = () => {
   const [error, setError] = useState(false);
   const [projectsStart, setprojectsStart] = useState([]);
   const [projects, setProjects] = useState([]);
+  const [showMessage, setshowMessage] = useState(false);
+  const [message, setMessage] = useState("");
 
   const fetchData = async () => {
     setLoading(true);
@@ -31,9 +32,8 @@ const Projects = () => {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line
   }, []);
-
-  useEffect(() => {}, [projects]);
 
   if (loading) {
     return (
@@ -47,58 +47,93 @@ const Projects = () => {
     return <Error />;
   }
   return (
-    <Wrapper>
-      <div className="filters">
-        <Search
-          projectsStart={projectsStart}
-          projects={projects}
-          setProjects={setProjects}
-        />
-        <Filters
-          projectsStart={projectsStart}
-          projects={projects}
-          setProjects={setProjects}
-        />
-        <Sort projects={projects} setProjects={setProjects} />
-      </div>
+    <div>
+      {showMessage && <MessageBig>{message}</MessageBig>}
+      <Wrapper>
+        <div className="filters">
+          <Search
+            projectsStart={projectsStart}
+            projects={projects}
+            setProjects={setProjects}
+            setMessage={setMessage}
+            setshowMessage={setshowMessage}
+          />
+          <Filters
+            projectsStart={projectsStart}
+            projects={projects}
+            setProjects={setProjects}
+            setMessage={setMessage}
+            setshowMessage={setshowMessage}
+          />
+          <Sort projects={projects} setProjects={setProjects} />
+          {showMessage && <MessageSmall>{message}</MessageSmall>}
+        </div>
 
-      <div className="cards">
-        {projects?.map((project, index) => {
-          const { name, created_at, updated_at, language, html_url } = project;
-          return (
-            <div className="card-container" key={index}>
-              <h5>{name}</h5>
-              <div className="inner">
-                <div className="withdrawn-data">
-                  <FaCalendar className="icon" />
-                  {`Created : ${created_at.slice(0, 10).replace(/-/g, "/")}`}
+        <div className="cards">
+          {projects?.map((project, index) => {
+            const { name, created_at, updated_at, language, html_url } =
+              project;
+            return (
+              <div className="card-container" key={index}>
+                <h5>{name}</h5>
+                <div className="inner">
+                  <div className="withdrawn-data">
+                    <FaCalendar className="icon" />
+                    {`Created : ${created_at.slice(0, 10).replace(/-/g, "/")}`}
+                  </div>
+                  <div className="withdrawn-data">
+                    <FaCalendar className="icon" />
+                    {`Updated : ${updated_at.slice(0, 10).replace(/-/g, "/")}`}
+                  </div>
+                  <div className="withdrawn-data">
+                    <FaCode className="icon" />
+                    {`Language: ${language}`}
+                  </div>
                 </div>
-                <div className="withdrawn-data">
-                  <FaCalendar className="icon" />
-                  {`Updated : ${updated_at.slice(0, 10).replace(/-/g, "/")}`}
-                </div>
-                <div className="withdrawn-data">
-                  <FaCode className="icon" />
-                  {`Language: ${language}`}
-                </div>
+                <button type="button" className="btn">
+                  <a href={html_url}>github repo</a>
+                </button>
               </div>
-              <button type="button" className="btn">
-                <a href={html_url}>github repo</a>
-              </button>
-            </div>
-          );
-        })}
-      </div>
-    </Wrapper>
+            );
+          })}
+        </div>
+      </Wrapper>
+    </div>
   );
 };
 
-const Wrapper = styled.main`
+const MessageBig = styled.div`
+  display: none;
+  text-align: center;
+  color: var(--clr-red-dark);
+  font-weight: 600;
+  @media (min-width: 992px) {
+    display: block;
+  }
+`;
+
+const MessageSmall = styled.div`
+  margin-top: 1rem;
+  display: block;
+  text-align: center;
+  color: var(--clr-red-dark);
+  font-weight: 600;
+  @media (min-width: 992px) {
+    display: none;
+  }
+`;
+
+const Wrapper = styled.section`
   width: 95%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  .big-screen {
+    display: none;
+    color: red;
+    font-weight: 600;
+  }
   .filters {
     margin: 0 auto;
   }
@@ -160,6 +195,10 @@ const Wrapper = styled.main`
     }
     .cards {
       margin: 3rem auto 3rem;
+    }
+    .big-screen {
+      text-align: center;
+      color: var(--clr-red-dark);
     }
   }
 `;

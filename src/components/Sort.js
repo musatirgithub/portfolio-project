@@ -11,12 +11,17 @@ const Sort = ({ projects, setProjects }) => {
   useEffect(() => {
     const newData = mySort(projects, sortValue);
     setProjects(newData);
-    console.log(sortValue, projects);
   }, [sortValue]);
   return (
     <Wrapper>
       <h5>sort by</h5>
-      <select name="sort" id="sort" value={sortValue} onChange={handleSort}>
+      <select
+        name="sort"
+        id="sort"
+        value={sortValue}
+        onChange={handleSort}
+        className="sort-input"
+      >
         <option value="name-a">Name (a-z)</option>
         <option value="name-z">Name (z-a)</option>
         <option value="create-date">Creation date</option>
@@ -31,6 +36,15 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  .sort-input {
+    border-color: transparent;
+    font-size: 1rem;
+    text-transform: capitalize;
+    padding: 0.5rem;
+    background-color: var(--clr-grey-9);
+    border-radius: var(--radius);
+    letter-spacing: var(--spacing);
+  }
 `;
 
 export default Sort;
