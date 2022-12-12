@@ -8,12 +8,10 @@ const Search = ({
   projectsStart,
   setMessage,
   setshowMessage,
-  searchText,
-  setsearchText,
   setfilter,
 }) => {
+  const [searchText, setsearchText] = useState("");
   const handleChange = (e) => {
-    setfilter("All");
     setsearchText(e.target.value);
   };
 

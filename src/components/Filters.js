@@ -8,9 +8,8 @@ const Filters = ({
   projectsStart,
   setMessage,
   setshowMessage,
-  filter,
-  setfilter,
 }) => {
+  const [filter, setfilter] = useState("All");
   const filterCriterias = langs(projectsStart);
 
   useEffect(() => {
@@ -18,7 +17,7 @@ const Filters = ({
     setProjects(filteredData);
     setshowMessage(true);
     setMessage(
-      `There are ${filteredData.length} projects matching your criterias`
+      `There are ${filteredData.length} projects matching your criteria`
     );
     setTimeout(() => {
       setshowMessage(false);
