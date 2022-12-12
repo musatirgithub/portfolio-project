@@ -10,7 +10,7 @@ const Home = () => {
         <div className="content">
           <p>
             I've worked at diverse posts in different countries. Managed
-            successful projects. Finally decided to change my career path and in
+            successful projects. Then decided to change my career path and in
             order to improve my coding skills I've attended an IT bootcamp and
             took online courses.
           </p>
