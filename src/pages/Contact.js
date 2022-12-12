@@ -27,11 +27,11 @@ const Contact = () => {
               <MdMail color="var(--clr-grey-1)" className="link-icon" />
             </a>
           </li>
-          <li>
+          {/* <li>
             <a href="">
               <IoIosDocument color="var(--clr-grey-1)" className="link-icon" />
             </a>
-          </li>
+          </li> */}
         </ul>
       </div>
     </Wrapper>

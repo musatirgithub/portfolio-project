@@ -9,10 +9,10 @@ const Home = () => {
         <h2>Frontend Developer</h2>
         <div className="content">
           <p>
-            At diverse posts, countries, courses and education I had a
-            successful career in Turkish Army for 21 years. After ending my
-            military career, I've decided to improve my amateur coding skills by
-            both attending a bootcamp and taking online courses.
+            I've worked at diverse posts in different countries. Managed
+            successful projects. Finally decided to change my career path and in
+            order to improve my coding skills I've attended an IT bootcamp and
+            took online courses.
           </p>
           <p>
             Currently I'm developing frontend projects and receiving backend
