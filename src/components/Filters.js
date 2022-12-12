@@ -8,9 +8,10 @@ const Filters = ({
   projectsStart,
   setMessage,
   setshowMessage,
+  filter,
+  setfilter,
 }) => {
   const filterCriterias = langs(projectsStart);
-  const [filter, setfilter] = useState("All");
 
   useEffect(() => {
     const filteredData = myFilter(projectsStart, filter);

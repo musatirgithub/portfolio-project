@@ -15,6 +15,8 @@ const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [showMessage, setshowMessage] = useState(false);
   const [message, setMessage] = useState("");
+  const [filter, setfilter] = useState("All");
+  const [searchText, setsearchText] = useState("");
 
   const fetchData = async () => {
     setLoading(true);
@@ -57,6 +59,9 @@ const Projects = () => {
             setProjects={setProjects}
             setMessage={setMessage}
             setshowMessage={setshowMessage}
+            searchText={searchText}
+            setsearchText={setsearchText}
+            setfilter={setfilter}
           />
           <Filters
             projectsStart={projectsStart}
@@ -64,6 +69,8 @@ const Projects = () => {
             setProjects={setProjects}
             setMessage={setMessage}
             setshowMessage={setshowMessage}
+            filter={filter}
+            setfilter={setfilter}
           />
           <Sort projects={projects} setProjects={setProjects} />
           {showMessage && <MessageSmall>{message}</MessageSmall>}
