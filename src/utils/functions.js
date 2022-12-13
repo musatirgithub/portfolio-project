@@ -56,4 +56,14 @@ const mySearch = (data, criteria) => {
   );
 };
 
-export { langs, mySort, myFilter, mySearch };
+const paginate = (projects) => {
+  const projectsPerPage = 6;
+  const pages = Math.ceil(projects.length / projectsPerPage);
+
+  const arrayedProjects = Array.from({ length: pages }, (_, index) => {
+    const start = index * projectsPerPage;
+    return projects.slice(start, start + projectsPerPage);
+  });
+};
+
+export { langs, mySort, myFilter, mySearch, paginate };

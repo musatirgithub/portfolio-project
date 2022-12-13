@@ -21,6 +21,7 @@ const Projects = () => {
     try {
       const response = await fetch(url);
       const data = await response.json();
+      console.log(data);
       setprojectsStart(data);
       setProjects(data);
     } catch (error) {
@@ -90,9 +91,21 @@ const Projects = () => {
                     {`Language: ${language}`}
                   </div>
                 </div>
+                {/* <div className="btn-container"> */}
                 <button type="button" className="btn">
-                  <a href={html_url}>github repo</a>
+                  <a href={html_url} target="_blank">
+                    github repo
+                  </a>
                 </button>
+                {/* <button type="button" className="btn">
+                    <a
+                      href={"https://musatirgithub.github.io/" + name}
+                      target="_blank"
+                    >
+                      live project
+                    </a>
+                  </button> */}
+                {/* </div> */}
               </div>
             );
           })}
