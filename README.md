@@ -13,7 +13,7 @@ Project aims to withdraw my public repos from github API, display them, allow us
 
 ## Problem Statement
 
-- Develop a stock app for e commerse.
+- Develop an app which  withdraw my public repos from github API, display them, allow users to search, filter and sort my projects..
 <hr>
 
 
