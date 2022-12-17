@@ -39,7 +39,7 @@ Project aims to display my public github projects.
 I used;
 - React
 - Styled Components
-- React Router Dom
+- React Router
 - Fetch Method
 
 
@@ -48,15 +48,15 @@ I used;
 
 ## Lesson Learned
 
-- At the planning phase I've decided 
+- At the planning phase considering the app as a simple one I've decided to create search, filter and sort as different components and used different useState hooks to keep these data. In the end it was complicated to manage all these states by passing props. For future apps it'll be better to keep these data in a global state. 
 
 ### Useful resources
 
 - [W3 Schoold](https://www.w3schools.com/) 
 - [MDN](https://developer.mozilla.org/en-US/) 
 - [REACT](https://reactjs.org/) 
-- [MATERIAL UI](https://mui.com/) 
-- [TOASTIFY](https://www.npmjs.com/package/react-toastify) 
+- [STYLED COMPONENTS](https://styled-components.com/)
+- [REACT ROUTER](https://reactrouter.com/en/main) 
 
 
 
