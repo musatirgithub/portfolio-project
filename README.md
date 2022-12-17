@@ -1,10 +1,8 @@
-# [Click here to reach portfolio project](https://portfolio-project-musatir.vercel.app/)
 # [Project : Portfolio Project](https://portfolio-project-musatir.vercel.app/)
 ## Table of contents
 
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
-  - [Links](#links)
   - [Built with](#built-with)
   - [Useful resources](#useful-resources)
 
@@ -28,10 +26,7 @@ Project aims to withdraw my public repos from github API, display them, allow us
 
 
 
-## Links
-<hr>
-<b>Check The Live Website ➡️</b> <a href="https://stock-app-us.vercel.app/">Live Website</a>
-<hr>
+
 
 ### Built with
 - I made an Stock App with React 
