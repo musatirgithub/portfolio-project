@@ -1,6 +1,5 @@
-# [Click here reach my portfolio project](https://portfolio-project-musatir.vercel.app/)
-# Project : Stock App
-
+# [Click here to reach portfolio project](https://portfolio-project-musatir.vercel.app/)
+# Project : Portfolio Project
 ## Table of contents
 
   - [The challenge](#the-challenge)
@@ -12,7 +11,7 @@
 
 
 ## The challenge
-Project aims to create a E comerse stock app with React.
+Project aims to withdraw my public repos from github API, display them, allow users to search, filter and sort my projects.
 
 ## Problem Statement
 
