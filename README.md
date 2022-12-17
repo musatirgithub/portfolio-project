@@ -9,11 +9,11 @@
 
 
 ## The challenge
-Project aims to withdraw my public repos from github API, display them, allow users to search, filter and sort my projects.
+Project aims to display my public github projects.
 
 ## Problem Statement
 
-- Develop an app which  withdraw my public repos from github API, display them, allow users to search, filter and sort my projects..
+- Develop an app which  withdraw my public repos from github API, display them, allow users to search, filter and sort my projects.
 <hr>
 
 
@@ -28,34 +28,27 @@ Project aims to withdraw my public repos from github API, display them, allow us
 
 
 
-### Built with
-- I made an Stock App with React 
-- If some error happens while logging in, some alerts will show up which I created using react-toastify.
-- I used  Material UI for styling.
-- I added some restrictions. Without logging in user can not reach details page.
-- I used useNavigate to redirect to desired pages.
-- User can login with his/her  account or register and create new user.
-- User can add Firm, Brand, Product, Sales and Purchases.
-- User can see Sales and Perchases as graphic on Dashboard page, with help of Tremor
+### Project Information
+- Portfolio App is made by using React,
+- Projects are retrieved from Github API by using fetch method,
+- Users can search, filter and sort projects,
+- For providing multipage experience to user, React Router Dom is used,
+- For styling, traditidional CSS and Styled Components are used.
 
 ------
 I used;
-- React-Redux(Redux Toolkit)
-- Redux-Persist
-- Material UI
-- React Router
-- Axios
-- Formik, Yup
-- Toastify
-- Tremor
+- React
+- Styled Components
+- React Router Dom
+- Fetch Method
 
 
 
 
 
-## Notes
+## Lesson Learned
 
-- You can use HTML,CSS ,JAVASCRIPT and REACT to complete this project.
+- At the planning phase I've decided 
 
 ### Useful resources
 
