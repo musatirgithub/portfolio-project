@@ -21,7 +21,7 @@ Project aims to display my public github projects.
 
 ## Screenshot
 <p align="center">
-<a href="https://stock-app-us.vercel.app/"><img src="stock.gif" alt="gif"></a>
+<a href="https://portfolio-project-musatir.vercel.app/"><img src="portfolio-project.gif" alt="gif"></a>
 </p>
 
 
