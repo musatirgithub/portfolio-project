@@ -37,7 +37,7 @@ const Wrapper = styled.main`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 0.3rem;
+    gap: 0.5rem;
     h2,
     h3 {
       text-align: center;

@@ -51,9 +51,11 @@ const About = () => {
 };
 
 const Wrapper = styled.main`
+  min-height: calc(100vh - 10rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   .content {
-    padding-top: 1rem;
-    min-height: calc(100vh - 10rem);
     width: 95vw;
     margin: 0 auto;
     h3 {
@@ -71,9 +73,7 @@ const Wrapper = styled.main`
   }
   @media (min-width: 992px) {
     .content {
-      padding-top: 5rem;
       ul {
-        padding-top: 3rem;
       }
     }
   }
