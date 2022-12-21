@@ -35,7 +35,7 @@ const Wrapper = styled.main`
     padding: 0.6rem 1rem 0;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     gap: 0.3rem;
     h2,

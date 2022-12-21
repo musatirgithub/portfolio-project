@@ -56,7 +56,6 @@ const NavContainer = styled.nav`
   .nav-center {
     width: 90vw;
     margin: 0 auto;
-    max-width: var(--max-width);
   }
   .nav-header {
     display: flex;
@@ -64,7 +63,7 @@ const NavContainer = styled.nav`
     justify-content: space-between;
     img {
       width: 45px;
-      margin-left: -15px;
+      margin-left: 0px;
     }
   }
   .nav-toggle {
@@ -88,6 +87,7 @@ const NavContainer = styled.nav`
       display: none;
     }
     .nav-center {
+      width: 35rem;
       display: grid;
       grid-template-columns: auto 1fr auto;
       align-items: center;
